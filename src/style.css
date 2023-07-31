@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .page {
     background-color: rgb(233, 213, 113);
 
@@ -65,7 +65,8 @@
  .photo-card {
     background-color:rgb(236, 223, 159);
     border-radius: 10px
-=======
+ }
+
 .page {
     background-color: rgb(233, 213, 113);
 
@@ -132,5 +133,5 @@
  .photo-card {
     background-color:rgb(236, 223, 159);
     border-radius: 10px
->>>>>>> bc0c58dfd2642ff30b41c8f9d9d24dcc92a307ca
+
  }
