@@ -29,7 +29,6 @@ const gallery = new SimpleLightbox('.gallery .photo-card a', {
   // captionPosition: 'bottom',
   captionDelay: 250,
 });
-console.log(gallery)
 
 elements.endMassageEl.classList.toggle("hidden");
 elements.btnMoreEl.classList.toggle("hidden"); 
@@ -104,7 +103,7 @@ function renderMarkup(
   elements.btnMoreEl.classList.toggle('hidden');
   return `<div class="photo-card">
   <a href="${largeImageURL}">
-    <img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" />
+    <img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" height="300" />
   </a>
   <div class="info">
     <p class="info-item">
