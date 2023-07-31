@@ -24,6 +24,13 @@ const elements = {
     endMassageEl: document.querySelector(".end-message"),
 }
 
+const gallery = new SimpleLightbox('.gallery .photo-card a', {
+  captionsData: 'alt',
+  // captionPosition: 'bottom',
+  captionDelay: 250,
+});
+console.log(gallery)
+
 elements.endMassageEl.classList.toggle("hidden");
 elements.btnMoreEl.classList.toggle("hidden"); 
 elements.formEL.addEventListener("submit", handlerSearch);
@@ -79,7 +86,7 @@ async function handlerSearch(evt) {
                 elements.endMassageEl.classList.remove('hidden');
             }
         }
-       
+       gallery.refresh()
     } catch (error) {
         Notiflix.Notify.failure(`Sorry, ${error.message}`);
     }
@@ -96,9 +103,9 @@ function renderMarkup(
 ) {
   elements.btnMoreEl.classList.toggle('hidden');
   return `<div class="photo-card">
-  <img href="${largeImageURL}">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" height="300"/>
-
+  <a href="${largeImageURL}">
+    <img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" />
+  </a>
   <div class="info">
     <p class="info-item">
       <b>Likes: ${likes}</b>
@@ -139,7 +146,7 @@ async function showMoreImageOnClick() {
       );
     });
     elements.galleryEl.insertAdjacentHTML('beforeend', markupArr.join(''));
-
+    gallery.refresh();
     elements.btnMoreEl.classList.toggle('hidden');
   } catch (error) {
     Notiflix.Notify.failure(`Sorry, ${error.message}`);
