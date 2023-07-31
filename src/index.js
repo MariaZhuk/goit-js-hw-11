@@ -1,6 +1,8 @@
 import Notiflix from 'notiflix';
 import 'slim-select/dist/slimselect.css';
 import axios from "axios";
+import SimpleLightbox from 'simplelightbox';
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
@@ -21,6 +23,7 @@ const elements = {
     btnMoreEl: document.querySelector(".load-more"),
     endMassageEl: document.querySelector(".end-message"),
 }
+
 elements.endMassageEl.classList.toggle("hidden");
 elements.btnMoreEl.classList.toggle("hidden"); 
 elements.formEL.addEventListener("submit", handlerSearch);
@@ -93,7 +96,9 @@ function renderMarkup(
 ) {
   elements.btnMoreEl.classList.toggle('hidden');
   return `<div class="photo-card">
-  <img href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" height="300"/></img>
+  <img href="${largeImageURL}">
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="100%" height="300"/>
+
   <div class="info">
     <p class="info-item">
       <b>Likes: ${likes}</b>
